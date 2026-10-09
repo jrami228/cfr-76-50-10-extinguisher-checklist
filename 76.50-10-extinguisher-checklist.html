@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Table 1 to 46 CFR 76.50-10(b) — Extinguisher Checklist</title>
+<style>
+  :root {
+    --navy: #0e2a47;
+    --ink: #1c2834;
+    --muted: #5c6b7a;
+    --line: #d5dde6;
+    --paper: #f4f7fa;
+    --sat: #d9f2e1;
+    --sat-edge: #1f8a4c;
+    --unsat: #f8d6d6;
+    --unsat-edge: #c0392b;
+    --na: #9aa3ad;
+    --na-edge: #4b5563;
+    --gold: #b6893a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", Calibri, Arial, sans-serif; color: var(--ink); background: var(--paper); line-height: 1.45; }
+  header.top { background: var(--navy); color: #fff; padding: 20px 24px 16px; }
+  header.top h1 { margin: 0 0 4px; font-size: 1.4rem; }
+  header.top p { margin: 0; color: #d5e2ef; }
+  header.top a { color: #f0d48a; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 16px 18px 48px; }
+  .note, .card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+  .note { background: #fff8e8; border-color: #ead7a4; color: #5c4a1e; }
+  h2 { margin: 0 0 8px; font-size: 1.05rem; color: var(--navy); }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  label.field { display: flex; flex-direction: column; gap: 4px; font-size: 0.75rem; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+  input, select, textarea { font: inherit; color: var(--ink); border: 1px solid #c5d0db; border-radius: 6px; padding: 7px 8px; background: #fff; }
+  textarea { width: 100%; min-height: 58px; resize: vertical; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+  button { font: inherit; border: 1px solid #b7c4d1; background: #fff; color: var(--navy); border-radius: 6px; padding: 7px 11px; cursor: pointer; }
+  button.warn { color: #9b2c2c; border-color: #e3b4b4; }
+  button[aria-pressed="true"] { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .stats { margin-left: auto; display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill { border-radius: 999px; padding: 4px 10px; font-size: 0.82rem; font-weight: 700; background: #eef2f6; }
+  .pill.sat { background: var(--sat); color: #146c3a; }
+  .pill.unsat { background: var(--unsat); color: #9b2c2c; }
+  .pill.na { background: #9aa3ad; color: #1f2933; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; background: #fff; }
+  th { text-align: left; background: var(--navy); color: #fff; padding: 8px; }
+  td { padding: 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr.group td { background: #e8eef5; color: var(--navy); font-weight: 750; }
+  tr.item.sat td { background: var(--sat); }
+  tr.item.unsat td { background: var(--unsat); }
+  tr.item.na td { background: var(--na); }
+  tr.item td:first-child { border-left: 4px solid transparent; }
+  tr.item.sat td:first-child { border-left-color: var(--sat-edge); }
+  tr.item.unsat td:first-child { border-left-color: var(--unsat-edge); }
+  tr.item.na td:first-child { border-left-color: var(--na-edge); }
+  .rating { font-weight: 700; white-space: nowrap; }
+  sup { color: var(--gold); font-weight: 750; }
+  .status { display: flex; flex-direction: column; gap: 4px; min-width: 138px; }
+  .status button { text-align: left; font-size: 0.8rem; padding: 5px 8px; }
+  .status button.on-sat { background: #1f8a4c; color: #fff; border-color: #1f8a4c; }
+  .status button.on-unsat { background: #c0392b; color: #fff; border-color: #c0392b; }
+  .status button.on-na { background: #5f6770; color: #fff; border-color: #5f6770; }
+  tr.hidden { display: none; }
+  .empty { color: var(--muted); font-style: italic; }
+  ol { margin: 6px 0 0; padding-left: 1.2rem; font-size: 0.88rem; }
+  .cite { color: var(--muted); font-size: 0.82rem; }
+  #appendix table td { background: #fff7f7; }
+
+  sup.fn, sup { cursor: help; }
+  #note-pop {
+    position: fixed;
+    z-index: 20;
+    max-width: 360px;
+    background: #1c2834;
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 0.86rem;
+    line-height: 1.4;
+    box-shadow: 0 8px 24px rgba(0,0,0,.28);
+    pointer-events: none;
+    display: none;
+  }
+  #note-pop strong { color: #f0d48a; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } .stats { margin-left: 0; } }
+  @media print {
+    .toolbar, .no-print { display: none !important; }
+    tr.item.sat td, tr.item.unsat td, tr.item.na td, #appendix td { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .wrap { max-width: none; padding: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="card">
+    <h2>§ 76.50-10(a) and (b)</h2>
+    <p style="margin:0 0 8px;">Approved portable and semi-portable extinguishers must be installed in accordance with Table 1 to § 76.50-10(b). The location of the equipment must be to the satisfaction of the Officer in Charge, Marine Inspection. Nothing in paragraph (a) limits the OCMI from requiring additional equipment deemed necessary for the proper protection of the vessel.</p>
+    <p style="margin:0;">Table 1 indicates the minimum required number and type of extinguisher for each space listed. Extinguishers with larger numerical ratings or multiple letter designations may be used if the extinguishers meet the requirements of the table.</p>
+  </section>
+
+  <div class="toolbar">
+    <button type="button" data-filter="all" aria-pressed="true">All rows</button>
+    <button type="button" data-filter="open" aria-pressed="false">Not checked</button>
+    <button type="button" data-filter="unsat" aria-pressed="false">Unsatisfactory only</button>
+    <button type="button" id="markNa">Mark “none required” as N/A</button>
+    <button type="button" class="warn" id="clearAll">Clear all statuses</button>
+    <button type="button" id="printBtn">Print / save PDF</button>
+    <a href="#appendix" style="font-size:0.9rem;">Jump to appendix</a>
+    <div class="stats" id="stats"></div>
+  </div>
+
+  <div class="card" style="padding:0; overflow:auto;">
+    <table class="checklist" id="checklist">
+      <thead>
+        <tr>
+          <th style="width:42px;">#</th>
+          <th>Space</th>
+          <th>Minimum required rating</th>
+          <th>Quantity and location</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+        <tr class="group"><td colspan="5">Safety Area <sup>1</sup></td></tr>
+        <tr class="item" data-id="1">
+          <td>1</td>
+          <td>Wheelhouse or fire control room</td>
+          <td class="rating">2-A, 20-B:C</td>
+          <td>1 of each rating required for vessels over 1,000 GT. Only 1 extinguisher is required if it carries both 2-A and 20-B:C ratings.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="2" data-none="1">
+          <td>2</td>
+          <td>Stairway and elevator enclosures</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="3">
+          <td>3</td>
+          <td>Communicating corridors</td>
+          <td class="rating">2-A</td>
+          <td>1 in each main corridor in each main vertical zone. (May be located in stairway enclosures.)</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="4" data-none="1">
+          <td>4</td>
+          <td>Lifeboat embarkation and lowering stations</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="5">
+          <td>5</td>
+          <td>Radio room</td>
+          <td class="rating">20-B:C <sup>3</sup></td>
+          <td>2 in the vicinity of the exit. <sup>2</sup></td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+
+        <tr class="group"><td colspan="5">Accommodations <sup>1</sup></td></tr>
+        <tr class="item" data-id="6" data-none="1">
+          <td>6</td>
+          <td>Staterooms, toilet spaces, isolated pantries, etc.</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="7" data-none="1">
+          <td>7</td>
+          <td>Offices, lockers, and isolated storerooms</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="8">
+          <td>8</td>
+          <td>Public spaces</td>
+          <td class="rating">2-A</td>
+          <td>1 for each 2,500 sq ft or fraction thereof located in vicinity of the exits, except that none are required for spaces under 500 sq ft.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="9" data-none="1">
+          <td>9</td>
+          <td>Open decks or enclosed promenades</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+
+        <tr class="group"><td colspan="5">Service Spaces</td></tr>
+        <tr class="item" data-id="10">
+          <td>10</td>
+          <td>Galleys</td>
+          <td class="rating">40-B:C</td>
+          <td>1 for each 2,500 sq ft or fraction thereof suitable for hazards involved.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="11">
+          <td>11</td>
+          <td>Main pantries</td>
+          <td class="rating">2-A</td>
+          <td>1 for each 2,500 sq ft or fraction thereof located in the vicinity of the exits.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="12">
+          <td>12</td>
+          <td>Motion picture booths and film lockers</td>
+          <td class="rating">10-B:C <sup>3</sup></td>
+          <td>1 outside in the vicinity of the exit.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="13">
+          <td>13</td>
+          <td>Paint and lamp rooms</td>
+          <td class="rating">40-B</td>
+          <td>1 outside space in the vicinity of the exit.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="14" data-none="1">
+          <td>14</td>
+          <td>Inaccessible baggage, mail, and specie rooms, and storerooms</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="15">
+          <td>15</td>
+          <td>Accessible baggage, mail, and specie rooms, and storerooms</td>
+          <td class="rating">2-A</td>
+          <td>1 for each 2,500 sq ft or fraction thereof located in the vicinity of the exits, either inside or outside the spaces.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="16">
+          <td>16</td>
+          <td>Refrigerated storerooms</td>
+          <td class="rating">2-A</td>
+          <td>1 for each 2,500 sq ft or fraction thereof located in the vicinity of the exits, outside the spaces.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="17">
+          <td>17</td>
+          <td>Carpenter, valet, photographic, printing shops, sales rooms, etc.</td>
+          <td class="rating">2-A</td>
+          <td>1 outside the space in the vicinity of the exit.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+
+        <tr class="group"><td colspan="5">Machinery Spaces</td></tr>
+        <tr class="item" data-id="18" data-none="1">
+          <td>18</td>
+          <td>Coal-fired boilers: bunker and boiler space</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="19">
+          <td>19</td>
+          <td>Oil-fired boilers: spaces containing oil-fired boilers, either main or auxiliary, or their fuel oil units</td>
+          <td class="rating">40-B<br>160-B</td>
+          <td>2 required. <sup>3</sup><br>1 required. <sup>4</sup></td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="20">
+          <td>20</td>
+          <td>Internal combustion or gas turbine propelling machinery spaces</td>
+          <td class="rating">40-B<br>120-B <sup>5</sup></td>
+          <td>1 for each 1,000 brake horsepower, but not less than 2 or more than 6.<br>1 required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="21">
+          <td>21</td>
+          <td>Electric propulsive motors or generators of open type</td>
+          <td class="rating">40-B:C</td>
+          <td>1 for each propulsion motor or generator unit.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="22" data-none="1">
+          <td>22</td>
+          <td>Enclosed ventilating systems for motors and generators of electric propelling machinery</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="23">
+          <td>23</td>
+          <td>Auxiliary spaces, internal combustion or gas turbine</td>
+          <td class="rating">40-B</td>
+          <td>1 outside the space in the vicinity of the exit. <sup>6</sup></td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="24">
+          <td>24</td>
+          <td>Auxiliary spaces, electric emergency motors or generators</td>
+          <td class="rating">40-B:C</td>
+          <td>1 outside the space in the vicinity of the exit. <sup>6</sup></td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="25" data-none="1">
+          <td>25</td>
+          <td>Auxiliary spaces, steam</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="26" data-none="1">
+          <td>26</td>
+          <td>Trunks to machinery spaces</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="27" data-none="1">
+          <td>27</td>
+          <td>Fuel tanks</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+
+        <tr class="group"><td colspan="5">Cargo Spaces</td></tr>
+        <tr class="item" data-id="28" data-none="1">
+          <td>28</td>
+          <td>Inaccessible during voyage, including trunks (excluding tanks)</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="29">
+          <td>29</td>
+          <td>Accessible during voyage</td>
+          <td class="rating">2-A</td>
+          <td>1 for each 1,200 sq ft or fraction thereof.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="30">
+          <td>30</td>
+          <td>Vehicular spaces (covered by a sprinkler system)</td>
+          <td class="rating">40-B</td>
+          <td>1, plus 1 for each 6,000 sq ft or fraction thereof.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="31">
+          <td>31</td>
+          <td>Vehicular spaces (not covered by a sprinkler system)</td>
+          <td class="rating">40-B</td>
+          <td>1, plus 1 for each 1,500 sq ft or fraction thereof. <sup>7</sup></td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="32" data-none="1">
+          <td>32</td>
+          <td>Cargo oil tanks</td>
+          <td class="rating">None required</td>
+          <td>None required.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+
+        <tr class="group"><td colspan="5">Spare Units</td></tr>
+        <tr class="item" data-id="33">
+          <td>33</td>
+          <td>Spare units — 2-A</td>
+          <td class="rating">2-A</td>
+          <td>10 percent of the required number for public spaces rounded up.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="34">
+          <td>34</td>
+          <td>Spare units — 40-B</td>
+          <td class="rating">40-B</td>
+          <td>10 percent of the required number for cargo spaces rounded up.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+        <tr class="item" data-id="35">
+          <td>35</td>
+          <td>Spare units — 40-B:C</td>
+          <td class="rating">40-B:C</td>
+          <td>1.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+
+        <tr class="group"><td colspan="5">§ 76.50-10(c)</td></tr>
+        <tr class="item" data-id="36">
+          <td>36</td>
+          <td>Semi-portable fire extinguishing systems</td>
+          <td class="rating">—</td>
+          <td>Must be located in the open so as to be readily seen.</td>
+          <td><div class="status"><button type="button" data-set="sat">Satisfactory</button><button type="button" data-set="unsat">Unsatisfactory</button><button type="button" data-set="na">N/A</button></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cite">Rows 1–35 are Table 1 to § 76.50-10(b). Row 36 is paragraph (c), not a table row. Dual-rating table lines (oil-fired boilers and propelling machinery) stay one checklist row, matching the CFR. Spare-unit ratings are listed separately so each can be marked.</p>
+
+  <section class="card" id="appendix">
+    <h2>Appendix — Unsatisfactory items</h2>
+    <p class="cite" style="margin-top:0;">Grows as rows are marked Unsatisfactory. Clears a row if that mark is changed or removed.</p>
+    <div id="appendixBody"><p class="empty">No unsatisfactory items yet.</p></div>
+  </section>
+
+  <section class="card">
+    <h2>Table notes</h2>
+    <ol>
+      <li>In any case, on vessels of 150 feet (45.72 meters) in length and over, there must be at least two 2-A units on each passenger deck.</li>
+      <li>For vessels on an international voyage, substitute 1 20-B:C in the vicinity of the exit.</li>
+      <li>Vessels of less than 1,000 GT and not on an international voyage require 1.</li>
+      <li>Vessels of less than 1,000 GT and not on an international voyage may substitute one 120-B for one 160-B.</li>
+      <li>If an oil-burning donkey boiler is fitted in the space, the 160-B previously required for the protection of the boiler room may be substituted. Not required on vessels of less than 300 GT if the fuel has a flashpoint of 110 °F or lower except those on an international voyage.</li>
+      <li>Not required on vessels of less than 300 GT if the fuel has a flashpoint higher than 110 °F.</li>
+      <li>Two 10-B units may be substituted for one 40-B unit.</li>
+    </ol>
+  </section>
+</div>
+<div id="note-pop" role="tooltip"></div>
+<script>
+const KEY = "cfr-76-50-10-checklist-v3";
+const NOTES = {
+  "1": "In any case, on vessels of 150 feet (45.72 meters) in length and over, there must be at least two 2-A units on each passenger deck.",
+  "2": "For vessels on an international voyage, substitute 1 20-B:C in the vicinity of the exit.",
+  "3": "Vessels of less than 1,000 GT and not on an international voyage require 1.",
+  "4": "Vessels of less than 1,000 GT and not on an international voyage may substitute one 120-B for one 160-B.",
+  "5": "If an oil-burning donkey boiler is fitted in the space, the 160-B previously required for the protection of the boiler room may be substituted. Not required on vessels of less than 300 GT if the fuel has a flashpoint of 110 °F or lower except those on an international voyage.",
+  "6": "Not required on vessels of less than 300 GT if the fuel has a flashpoint higher than 110 °F.",
+  "7": "Two 10-B units may be substituted for one 40-B unit."
+};
+const state = { statuses: {}, filter: "all" };
+const pop = document.getElementById("note-pop");
+
+function rows() { return [...document.querySelectorAll("#body tr.item")]; }
+
+function paint() {
+  rows().forEach(tr => {
+    const id = tr.dataset.id;
+    const status = state.statuses[id] || "";
+    tr.dataset.status = status;
+    tr.classList.remove("sat", "unsat", "na");
+    if (status) tr.classList.add(status);
+    tr.querySelectorAll("button[data-set]").forEach(btn => {
+      btn.classList.toggle("on-" + btn.dataset.set, status === btn.dataset.set);
+    });
+  });
+  applyFilter();
+  renderAppendix();
+  renderStats();
+}
+
+function applyFilter() {
+  rows().forEach(tr => {
+    const status = tr.dataset.status || "";
+    let show = true;
+    if (state.filter === "open") show = !status;
+    if (state.filter === "unsat") show = status === "unsat";
+    tr.classList.toggle("hidden", !show);
+  });
+  document.querySelectorAll("#body tr.group").forEach(g => {
+    let sib = g.nextElementSibling, any = false;
+    while (sib && !sib.classList.contains("group")) {
+      if (sib.classList.contains("item") && !sib.classList.contains("hidden")) any = true;
+      sib = sib.nextElementSibling;
+    }
+    g.classList.toggle("hidden", state.filter !== "all" && !any);
+  });
+}
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return "&#" + c.charCodeAt(0) + ";";
+  });
+}
+
+function renderAppendix() {
+  const host = document.getElementById("appendixBody");
+  const bad = rows().filter(tr => state.statuses[tr.dataset.id] === "unsat");
+  if (!bad.length) {
+    host.innerHTML = '<p class="empty">No unsatisfactory items yet. Mark a row Unsatisfactory and it will appear here.</p>';
+    return;
+  }
+  const body = bad.map(tr => {
+    const cells = tr.querySelectorAll("td");
+    return "<tr><td>" + esc(cells[0].textContent) + "</td><td>" + esc(cells[1].textContent) + "</td><td>" + esc(cells[2].innerText) + "</td><td>" + esc(cells[3].innerText) + "</td></tr>";
+  }).join("");
+  host.innerHTML = '<table><thead><tr><th>#</th><th>Space</th><th>Required rating</th><th>Quantity and location</th></tr></thead><tbody>' + body + '</tbody></table><p class="cite">' + bad.length + " unsatisfactory item" + (bad.length === 1 ? "" : "s") + ".</p>";
+}
+
+function renderStats() {
+  const all = rows().length;
+  let sat = 0, unsat = 0, na = 0;
+  Object.values(state.statuses).forEach(s => { if (s === "sat") sat++; else if (s === "unsat") unsat++; else if (s === "na") na++; });
+  document.getElementById("stats").innerHTML = '<span class="pill sat">Satisfactory ' + sat + '</span><span class="pill unsat">Unsatisfactory ' + unsat + '</span><span class="pill na">N/A ' + na + '</span><span class="pill">Not checked ' + (all - sat - unsat - na) + '</span><span class="pill">' + all + ' table items</span>';
+}
+
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify({ statuses: state.statuses })); } catch (e) {}
+}
+function load() {
+  try {
+    const data = JSON.parse(localStorage.getItem(KEY) || "null");
+    if (data && data.statuses) state.statuses = data.statuses;
+  } catch (e) {}
+}
+
+document.getElementById("body").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-set]");
+  if (!btn) return;
+  const id = btn.closest("tr").dataset.id;
+  state.statuses[id] = state.statuses[id] === btn.dataset.set ? "" : btn.dataset.set;
+  save();
+  paint();
+});
+document.querySelectorAll("[data-filter]").forEach(btn => btn.addEventListener("click", () => {
+  state.filter = btn.dataset.filter;
+  document.querySelectorAll("[data-filter]").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+  applyFilter();
+}));
+document.getElementById("markNa").addEventListener("click", () => {
+  rows().forEach(tr => { if (tr.dataset.none === "1") state.statuses[tr.dataset.id] = "na"; });
+  save(); paint();
+});
+document.getElementById("clearAll").addEventListener("click", () => {
+  if (!confirm("Clear every status?")) return;
+  state.statuses = {};
+  save(); paint();
+});
+document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+document.getElementById("checklist").addEventListener("mouseover", e => {
+  const mark = e.target.closest("sup");
+  if (!mark || !document.getElementById("checklist").contains(mark)) return;
+  const n = mark.textContent.trim();
+  if (!NOTES[n]) return;
+  pop.innerHTML = "<strong>Note " + n + ".</strong> " + NOTES[n];
+  pop.style.display = "block";
+  const r = mark.getBoundingClientRect();
+  let left = r.left;
+  let top = r.bottom + 8;
+  pop.style.left = "0px";
+  pop.style.top = "0px";
+  const w = pop.offsetWidth;
+  const h = pop.offsetHeight;
+  if (left + w > window.innerWidth - 12) left = window.innerWidth - w - 12;
+  if (top + h > window.innerHeight - 12) top = r.top - h - 8;
+  pop.style.left = Math.max(8, left) + "px";
+  pop.style.top = Math.max(8, top) + "px";
+});
+document.getElementById("checklist").addEventListener("mouseout", e => {
+  const mark = e.target.closest("sup");
+  if (!mark) return;
+  pop.style.display = "none";
+});
+
+load();
+paint();
+</script>
+</body>
+</html>
